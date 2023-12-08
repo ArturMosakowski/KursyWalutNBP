@@ -1,0 +1,30 @@
+﻿@model KursyWalutNBP.Models.ExchangeRateData
+
+@{
+    ViewData["Title"] = "Data";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Aktualne kursy walut NBP</h1>
+    <h3 class="display-5">(z dnia @Model.EffectiveDate)</h3>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Currency</th>
+            <th>Exchange Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Rates)
+        {
+            <tr>
+                <td>@item.Code</td>
+                <td>@item.Currency</td>
+                <td>@item.Mid</td>
+            </tr>
+        }
+    </tbody>
+</table>
